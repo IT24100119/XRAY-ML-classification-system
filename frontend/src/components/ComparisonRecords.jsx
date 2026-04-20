@@ -9,7 +9,7 @@ export default function ComparisonRecords({ patient, onBack }) {
 
     const [editingId, setEditingId] = useState(null);
     const [editForm, setEditForm] = useState({ disease: '', condition: '', doctor_note: '' });
-
+    
     // For the View Modal
     const [viewingRecord, setViewingRecord] = useState(null);
 
@@ -78,19 +78,19 @@ export default function ComparisonRecords({ patient, onBack }) {
 
     return (
         <div style={{ padding: '32px', maxWidth: '1000px', margin: '0 auto' }}>
-            <button
-                onClick={onBack}
-                style={{
-                    background: 'none',
-                    border: 'none',
-                    color: '#14b8a6',
-                    fontWeight: 600,
-                    cursor: 'pointer',
-                    fontSize: '1rem',
-                    marginBottom: '24px',
-                    display: 'flex',
-                    alignItems: 'center',
-                    padding: 0
+            <button 
+                onClick={onBack} 
+                style={{ 
+                    background: 'none', 
+                    border: 'none', 
+                    color: '#14b8a6', 
+                    fontWeight: 600, 
+                    cursor: 'pointer', 
+                    fontSize: '1rem', 
+                    marginBottom: '24px', 
+                    display: 'flex', 
+                    alignItems: 'center', 
+                    padding: 0 
                 }}
             >
                 ← Back to Patient Profile
@@ -114,10 +114,10 @@ export default function ComparisonRecords({ patient, onBack }) {
                         const isEditing = editingId === record.case_id;
 
                         return (
-                            <div key={record.case_id} style={{
-                                background: '#ffffff',
-                                borderRadius: '16px',
-                                padding: '24px',
+                            <div key={record.case_id} style={{ 
+                                background: '#ffffff', 
+                                borderRadius: '16px', 
+                                padding: '24px', 
                                 boxShadow: '0 4px 6px -1px rgba(0,0,0,0.05), 0 10px 15px -3px rgba(0,0,0,0.1)',
                                 border: '1px solid #f1f5f9'
                             }}>
@@ -126,12 +126,12 @@ export default function ComparisonRecords({ patient, onBack }) {
                                         {record.created_date}
                                     </div>
                                 </div>
-
+                                
                                 {isEditing ? (
                                     <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', marginBottom: '16px' }}>
                                         <div>
                                             <label style={{ fontSize: '0.85rem', fontWeight: 600, color: '#475569', marginBottom: '4px', display: 'block' }}>Disease</label>
-                                            <input
+                                            <input 
                                                 name="disease"
                                                 value={editForm.disease}
                                                 onChange={handleFormChange}
@@ -140,7 +140,7 @@ export default function ComparisonRecords({ patient, onBack }) {
                                         </div>
                                         <div>
                                             <label style={{ fontSize: '0.85rem', fontWeight: 600, color: '#475569', marginBottom: '4px', display: 'block' }}>Condition</label>
-                                            <input
+                                            <input 
                                                 name="condition"
                                                 value={editForm.condition}
                                                 onChange={handleFormChange}
@@ -149,7 +149,7 @@ export default function ComparisonRecords({ patient, onBack }) {
                                         </div>
                                         <div>
                                             <label style={{ fontSize: '0.85rem', fontWeight: 600, color: '#475569', marginBottom: '4px', display: 'block' }}>Doctor's Note</label>
-                                            <textarea
+                                            <textarea 
                                                 name="doctor_note"
                                                 value={editForm.doctor_note}
                                                 onChange={handleFormChange}
@@ -179,16 +179,16 @@ export default function ComparisonRecords({ patient, onBack }) {
                                 )}
 
                                 {!isEditing && (
-                                    <button
+                                    <button 
                                         onClick={() => setViewingRecord(record)}
-                                        style={{
-                                            width: '100%',
-                                            padding: '12px',
-                                            background: '#14b8a6',
-                                            color: '#ffffff',
-                                            border: 'none',
-                                            borderRadius: '8px',
-                                            fontWeight: 600,
+                                        style={{ 
+                                            width: '100%', 
+                                            padding: '12px', 
+                                            background: '#14b8a6', 
+                                            color: '#ffffff', 
+                                            border: 'none', 
+                                            borderRadius: '8px', 
+                                            fontWeight: 600, 
                                             cursor: 'pointer',
                                             display: 'flex',
                                             alignItems: 'center',
@@ -206,23 +206,23 @@ export default function ComparisonRecords({ patient, onBack }) {
                                 <div style={{ display: 'flex', gap: '12px' }}>
                                     {isEditing ? (
                                         <>
-                                            <button
+                                            <button 
                                                 onClick={() => cancelEdit()}
-                                                style={{
-                                                    flex: 1, padding: '10px', background: '#ffffff', color: '#64748b',
-                                                    border: '1px solid #cbd5e1', borderRadius: '8px', fontWeight: 600,
-                                                    cursor: 'pointer', display: 'flex', alignItems: 'center',
+                                                style={{ 
+                                                    flex: 1, padding: '10px', background: '#ffffff', color: '#64748b', 
+                                                    border: '1px solid #cbd5e1', borderRadius: '8px', fontWeight: 600, 
+                                                    cursor: 'pointer', display: 'flex', alignItems: 'center', 
                                                     justifyContent: 'center', gap: '6px', fontSize: '0.9rem'
                                                 }}
                                             >
                                                 <X size={16} /> Cancel
                                             </button>
-                                            <button
+                                            <button 
                                                 onClick={() => saveEdit(record.case_id)}
-                                                style={{
-                                                    flex: 1, padding: '10px', background: '#3b82f6', color: '#ffffff',
-                                                    border: 'none', borderRadius: '8px', fontWeight: 600,
-                                                    cursor: 'pointer', display: 'flex', alignItems: 'center',
+                                                style={{ 
+                                                    flex: 1, padding: '10px', background: '#3b82f6', color: '#ffffff', 
+                                                    border: 'none', borderRadius: '8px', fontWeight: 600, 
+                                                    cursor: 'pointer', display: 'flex', alignItems: 'center', 
                                                     justifyContent: 'center', gap: '6px', fontSize: '0.9rem'
                                                 }}
                                             >
@@ -231,23 +231,23 @@ export default function ComparisonRecords({ patient, onBack }) {
                                         </>
                                     ) : (
                                         <>
-                                            <button
+                                            <button 
                                                 onClick={() => startEdit(record)}
-                                                style={{
-                                                    flex: 1, padding: '10px', background: '#ffffff', color: '#14b8a6',
-                                                    border: '1px solid #14b8a6', borderRadius: '8px', fontWeight: 600,
-                                                    cursor: 'pointer', display: 'flex', alignItems: 'center',
+                                                style={{ 
+                                                    flex: 1, padding: '10px', background: '#ffffff', color: '#14b8a6', 
+                                                    border: '1px solid #14b8a6', borderRadius: '8px', fontWeight: 600, 
+                                                    cursor: 'pointer', display: 'flex', alignItems: 'center', 
                                                     justifyContent: 'center', gap: '6px', fontSize: '0.9rem'
                                                 }}
                                             >
                                                 <Edit2 size={16} /> Edit
                                             </button>
-                                            <button
+                                            <button 
                                                 onClick={() => handleDelete(record.case_id)}
-                                                style={{
-                                                    flex: 1, padding: '10px', background: '#ef4444', color: '#ffffff',
-                                                    border: 'none', borderRadius: '8px', fontWeight: 600,
-                                                    cursor: 'pointer', display: 'flex', alignItems: 'center',
+                                                style={{ 
+                                                    flex: 1, padding: '10px', background: '#ef4444', color: '#ffffff', 
+                                                    border: 'none', borderRadius: '8px', fontWeight: 600, 
+                                                    cursor: 'pointer', display: 'flex', alignItems: 'center', 
                                                     justifyContent: 'center', gap: '6px', fontSize: '0.9rem'
                                                 }}
                                             >
@@ -273,7 +273,7 @@ export default function ComparisonRecords({ patient, onBack }) {
                                 <X size={24} />
                             </button>
                         </div>
-
+                        
                         {/* Printable Area */}
                         <div id="print-area" style={{ padding: '32px', overflowY: 'auto' }}>
                             <style>
@@ -289,7 +289,7 @@ export default function ComparisonRecords({ patient, onBack }) {
                                 <h1 style={{ fontSize: '2rem', fontWeight: 800, color: '#14b8a6', margin: '0 0 8px 0' }}>Wedakam Health AI</h1>
                                 <p style={{ fontSize: '1rem', color: '#64748b', margin: 0 }}>Clinical X-Ray Comparison Report</p>
                             </div>
-
+                            
                             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '24px', marginBottom: '32px', background: '#f1f5f9', padding: '20px', borderRadius: '12px' }}>
                                 <div>
                                     <div style={{ fontSize: '0.85rem', fontWeight: 600, color: '#475569', marginBottom: '4px', textTransform: 'uppercase' }}>Patient Name</div>
@@ -307,7 +307,7 @@ export default function ComparisonRecords({ patient, onBack }) {
                                 <div style={{ fontSize: '1.25rem', fontWeight: 700, color: '#14b8a6', marginBottom: '16px' }}>
                                     {viewingRecord.disease || 'Unknown Diagnosis'}
                                 </div>
-
+                                
                                 <div style={{ fontSize: '0.95rem', fontWeight: 600, color: '#475569', marginBottom: '4px' }}>Comparison Outcome:</div>
                                 <div style={{ fontSize: '1.1rem', fontWeight: 500, color: '#334155' }}>
                                     {viewingRecord.condition || 'N/A'}
